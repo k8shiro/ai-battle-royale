@@ -41,27 +41,4 @@ ai-battle-royale/
 
 ## 開発コマンド
 
-### フロントエンド
-```bash
-# 開発サーバー起動
-docker-compose up frontend
-
-# リンター実行
-docker-compose run --rm frontend npm run lint
-```
-
-### バックエンド
-```bash
-# 開発サーバー起動
-docker-compose up backend
-
-# テスト実行
-docker-compose run --rm backend pytest
-```
-
-## 重要な実装パターン
-
-- ホットリロード対応
-- 構造化ログ出力
-- 包括的テストカバレッジ
-- Docker First開発
+詳細な開発コマンドは [README.md](README.md) を参照してください。

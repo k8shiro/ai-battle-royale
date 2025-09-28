@@ -8,8 +8,7 @@ AI Battle Royale BackendのREST API仕様書です。
 - 開発環境: `http://localhost:8000`
 
 ### 認証
-- 現在は認証なし
-- 将来的にAPIキー認証を実装予定
+- 認証なし
 
 ## エンドポイント一覧
 
