@@ -63,3 +63,84 @@ docker-compose run --rm frontend npm run format
 - **TypeScript**: 型安全性を確保
 - **Tailwind CSS**: ユーティリティファーストなCSSフレームワーク
 - **ESLint + Prettier**: コード品質と統一されたフォーマットを維持
+
+## Backend
+
+バックエンドAPI開発環境の設定と使用方法。
+
+### 技術スタック
+
+- **フレームワーク**: FastAPI (Python 3.11)
+- **データベース**: SQLite
+- **サーバー**: Uvicorn
+- **テスト**: pytest
+- **コンテナ**: Docker + Docker Compose
+
+### API仕様
+
+#### エンドポイント一覧
+
+- `GET /` - ルートエンドポイント（ヘルスチェック）
+- `GET /health` - ヘルスチェック
+- `GET /count` - 現在のカウント値を取得
+- `POST /count` - カウント値を1増加
+
+#### サンプルレスポンス
+
+```json
+// GET /count
+{
+  "count": 5
+}
+
+// POST /count
+{
+  "count": 6,
+  "message": "カウントが増加しました"
+}
+```
+
+### セットアップ
+
+#### 初回セットアップ
+
+```bash
+# バックエンドサービスをビルド
+docker compose build backend
+
+# データベース初期化（自動実行）
+docker compose up backend
+```
+
+#### 開発サーバーの起動
+
+```bash
+# バックエンドサーバー起動
+docker compose up backend
+```
+
+起動後、以下のURLでアクセス可能：
+- **API**: http://localhost:8000
+- **API ドキュメント**: http://localhost:8000/docs
+- **Redoc**: http://localhost:8000/redoc
+
+#### テストの実行
+
+```bash
+# 単体テスト実行
+docker compose run --rm backend pytest
+
+# テスト詳細表示
+docker compose run --rm backend pytest -v
+
+# カバレッジ付きテスト
+docker compose run --rm backend pytest --cov=.
+```
+
+### 開発環境の特徴
+
+- **ホットリロード**: コード変更時に自動でサーバーが再起動
+- **自動API ドキュメント**: FastAPIによる自動生成
+- **データ永続化**: SQLiteファイルがホストに保存
+- **統合ログ**: 構造化されたログ出力
+- **単体テスト**: pytest による包括的なテスト
