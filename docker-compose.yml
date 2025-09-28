@@ -10,3 +10,13 @@ services:
       - NODE_ENV=development
     stdin_open: true
     tty: true
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./db/data:/app/db/data
+    environment:
+      - PYTHONPATH=/app

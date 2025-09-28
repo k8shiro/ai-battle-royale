@@ -41,3 +41,16 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Database files
+db/data/*.db
+db/data/*.sqlite
+db/data/*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
