@@ -32,7 +32,6 @@ ehthumbs.db
 Thumbs.db
 
 # Claude Code files
-.claude/
 .cache/
 
 # Docker
